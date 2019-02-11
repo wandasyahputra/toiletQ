@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,227 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  cursor: pointer;
+  width: 50%;
+  max-width: 200px;
+  min-width: 150px;
+}
+.cardOverlay {
+  border-radius: 15px;
+  width: 70%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+.cardOverlay > div {
+  background: rgba(0,0,0, 0.3);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  align-items: center;
+  display: inline-flex;
+  right: 0;
+  justify-content: center;
+}
+.cardOverlay > img {
+  width: 100%;
+}
+
+.detail {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .description {
+  padding: 10px;
+  border: 1px solid #eee;
+  background: white;
+  box-shadow: 0 0 5px #eee;
+  border-radius: 4px;
+  margin: 20px;
+  text-align: left;
+  display: inline-flex;
+  flex-direction: row;
+  width: calc(100% - 60px);
+  align-items: center;
+}
+
+.footer .description .subDesc {
+  flex-grow: 1;
+}
+
+.footer .description .antrian {
+  color: blue;
+  cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  border-left: 1px solid #eee;
+  padding: 0 5px 0 15px;
+}
+.footer .description .antrian span:first-of-type {
+  font-size: 20px;
+}
+.footer .description .antrian span:last-of-type {
+  font-weight: 400;
+  font-size: 12px;
+}
+.overlay {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.listAntrian {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  height: 50%;
+  background: white;
+  z-index: 1;
+  text-align: left;
+  overflow-y: hidden;
+}
+.headers {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.headers div {
+  width: 50%;
+}
+
+input[type="text"], input[type="password"] {
+  background-color: #dcdcdc;
+  color: #4a4a4a;
+  width: 75%;
+  font-size: 11px;
+  letter-spacing: 0.1px;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px 0px 10px 10px;
+  margin: 5px 1px 3px 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}
+
+.queue.login {
+  padding: 10px;
+  margin: 5px;
+  width: 77.6%;
+}
+
+.listAntrian span {
+  background: #87b9e9;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 0 5px;
+}
+.listAntrian .title {
+  margin: 20px 10px;
+  font-size: 23px;
+  font-weight: 600;
+}
+.listtoilet {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+.listtoilet > div:first-of-type {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.listtoilet > div:first-of-type > img {
+  width: 100%;
+}
+
+.listtoilet > div:last-of-type > div:first-of-type {
+  font-weight: 600;
+}
+
+.detail .content {
+  top: 40%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.detail span {
+
+}
+
+.queue {
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  width: 80%;
+  min-height: 36px;
+  /* line-height: 36px; */
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px 0px;
+  background-color: rgb(1, 134, 213);
+  padding: 13px 16px;
+  border-radius: 4px;
+  outline: none;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: rgb(1, 134, 213);
+  border-image: initial;
+}
+.queue.disabled {
+  background-color: #eee;
+  border-color: #eee;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer span {
+  font-weight: 600;
+}
+
+
+.card > img{
+  border-radius: 15px;
+  width: 70%;
 }
 
 @keyframes App-logo-spin {
