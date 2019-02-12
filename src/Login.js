@@ -15,14 +15,14 @@ class Login extends Component {
   componentDidMount() {
     // const sending = async() => {
     //   try {
-    //     const res = await axios.get(`http://localhost/toiletq/getstatustoilet.php`)
+    //     const res = await axios.get(`http://192.168.100.146/toiletq/getstatustoilet.php`)
     //     res.status === 200 ? this.setState({ list: res.data.data }) : this.setState({ list: [] })
     //   } catch (e) {
     //   }
     // }
     // const get = async() => {
     //   try {
-    //     const res = await axios.get(`http://localhost/toiletq/getListAntrian.php`)
+    //     const res = await axios.get(`http://192.168.100.146/toiletq/getListAntrian.php`)
     //     res.status === 200 ? this.setState({ listantrian: res.data.data }) : this.setState({ listantrian: [] })
     //   } catch (e) {
     //   }
@@ -44,7 +44,7 @@ class Login extends Component {
           console.log(token)
           const sending = async() => {
             try {
-              const res = await axios.get(`http://localhost/toiletq/login.php?phone=${username}&password=${password}&tfcm=${token}`)
+              const res = await axios.get(`http://192.168.100.146/toiletq/login.php?phone=${username}&password=${password}&tfcm=${token}`)
               if (res.status === 200) {
                 localStorage.setItem('username', username)
                 localStorage.setItem('fcm', token)
@@ -59,7 +59,7 @@ class Login extends Component {
         .catch(() => {
           const sending = async() => {
             try {
-              const res = await axios.get(`http://localhost/toiletq/login.php?phone=${username}&password=${password}&tfcm=`)
+              const res = await axios.get(`http://192.168.100.146/toiletq/login.php?phone=${username}&password=${password}&tfcm=`)
               if (res.status === 200) {
                 localStorage.setItem('username', username)
                 window.location.reload()
@@ -73,7 +73,7 @@ class Login extends Component {
     } else {
       const sending = async() => {
         try {
-          const res = await axios.get(`http://localhost/toiletq/login.php?phone=${username}&password=${password}&tfcm=`)
+          const res = await axios.get(`http://192.168.100.146/toiletq/login.php?phone=${username}&password=${password}&tfcm=`)
           if (res.status === 200) {
             localStorage.setItem('username', username)
             window.location.reload()

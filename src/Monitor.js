@@ -35,14 +35,14 @@ class Monitor extends Component {
     this.dismiss()
     const statusToilet = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/getstatustoilet.php`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/getstatustoilet.php`)
         res.status === 200 ? this.setState({ list: res.data.data, emptyToilet: res.data.emptytoilet }) : this.setState({ list: [] })
       } catch (e) {
       }
     }
     const queueList = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/getListAntrian.php`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/getListAntrian.php`)
         res.status === 200 ? this.setState({ listantrian: res.data.data }) : this.setState({ listantrian: [] })
       } catch (e) {
       }
@@ -50,7 +50,7 @@ class Monitor extends Component {
     const getStatus = async() => {
       try {
         const username = localStorage.getItem('username')
-        const res = await axios.get(`http://localhost/toiletq/getstatus.php?id=${username}`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/getstatus.php?id=${username}`)
         if (res.status === 200) {
           if (res.data.data.ongoing) {
             this.setState({ ongoing: true, queue: false, toiletid: res.data.data.toiletid })
@@ -81,7 +81,7 @@ class Monitor extends Component {
     const username = localStorage.getItem('username')
     const reqQueue = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/requestantrian.php?id=${username}`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/requestantrian.php?id=${username}`)
         if (res.status === 200) {
           alert(`Mengantri sukses, silahkan tunggu ${res.data.data.noantrian} lagi`)
           this.syncData()
@@ -98,7 +98,7 @@ class Monitor extends Component {
     const { toiletid } = this.state
     const checkOutToilet = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/toilet.php?id=${username}&toilet=${toiletid}&method=keluar`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/toilet.php?id=${username}&toilet=${toiletid}&method=keluar`)
         if (res.status === 200) {
           this.syncData()
           setTimeout(() => this.closeTheDoor(toiletid),15000)
@@ -115,7 +115,7 @@ class Monitor extends Component {
     const { openDetail } = this.state
     const checkInToilet = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/toilet.php?id=${username}&toilet=${openDetail.id}&method=masuk`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/toilet.php?id=${username}&toilet=${openDetail.id}&method=masuk`)
         if (res.status === 200) {
           this.syncData()
           setTimeout(() => this.closeTheDoor(openDetail.id),15000)
@@ -130,7 +130,7 @@ class Monitor extends Component {
   closeTheDoor = id => {
     const closingTheDoor = async() => {
       try {
-        const res = await axios.get(`http://localhost/toiletq/handledoor.php?id=${id}`)
+        const res = await axios.get(`http://192.168.100.146/toiletq/handledoor.php?id=${id}`)
         res.status === 200 && console.log('door has been closed')
       } catch (e) {
       }
